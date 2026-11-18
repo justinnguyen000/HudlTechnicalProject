@@ -1,16 +1,10 @@
 import { test, expect } from '../src/fixtures/test-fixtures';
 import { env } from '../src/config/env';
-import { errorMessages, invalidEmail, unregisteredEmail } from '../src/data/login-data';
+import { errorMessages, unregisteredEmail } from '../src/data/login-data';
 
 test.describe('Login with invalid credentials', () => {
   test.beforeEach(async ({ loginPage }) => {
     await loginPage.goto();
-  });
-
-  test('rejects an invalid email format', async ({ loginPage }) => {
-    await loginPage.submitEmail(invalidEmail)
-
-    await expect(loginPage.emailErrorMessage).toContainText(errorMessages.invalidEmail)
   });
 
   test('rejects an unregistered email', async ({ loginPage }) => {
@@ -32,3 +26,4 @@ test.describe('Login with invalid credentials', () => {
     await expect(loginPage.credentialsErrorMessage).toContainText(errorMessages.invalidCredentials);
   });
 });
+

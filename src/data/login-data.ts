@@ -5,4 +5,11 @@ export const errorMessages = {
 }
 
 export const unregisteredEmail = 'no-account-qa-test@example.com';
-export const invalidEmail = 'invalid-Email@';
+
+export const malformedEmails = [
+  'plainaddress',
+  'missing-at-sign.com',
+  'user@',
+  '@no-local-part.com',
+  'user name@example.com'
+];
