@@ -1,12 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../src/fixtures/test-fixtures';
 import { env } from '../src/config/env';
-import { LoginPage } from '../src/pages/LoginPage';
-import { HomePage } from '../src/pages/HomePage';
 
-test('user can log in with valid credentials', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  const homePage = new HomePage(page);
-
+test('user can log in with valid credentials', async ({ page, loginPage, homePage }) => {
   await loginPage.goto();
   await loginPage.login(env.email, env.password);
 
