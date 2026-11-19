@@ -1,4 +1,11 @@
 {
+  "name": "hudl-login-automation",
+  "version": "1.0.0",
+  "description": "Playwright test suite for the Hudl login flow",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.65.0",
