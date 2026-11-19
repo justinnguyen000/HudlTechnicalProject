@@ -10,7 +10,9 @@ test.describe('Login with invalid credentials', () => {
   test('rejects an unregistered email', async ({ loginPage }) => {
     await loginPage.login(unregisteredEmail, 'Any-Password-123!');
 
-    await expect(loginPage.usernameErrorMessage).toContainText(errorMessages.invalidUsernamePassword);
+    await expect(loginPage.credentialsErrorMessage).toContainText(
+      errorMessages.invalidUsernamePassword,
+    );
   });
 
   test('rejects a wrong password', async ({ loginPage }) => {
@@ -26,4 +28,3 @@ test.describe('Login with invalid credentials', () => {
     await expect(loginPage.credentialsErrorMessage).toContainText(errorMessages.invalidCredentials);
   });
 });
-

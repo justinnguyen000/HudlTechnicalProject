@@ -1,7 +1,9 @@
 function required(name: string): string {
   const value = process.env[name];
   if (!value) {
-    throw new Error(`Missing environment variable ${name}. Copy .env.example to .env and fill it in.`);
+    throw new Error(
+      `Missing environment variable ${name}. Copy .env.example to .env and fill it in.`,
+    );
   }
   return value;
 }
@@ -9,4 +11,4 @@ function required(name: string): string {
 export const env = {
   email: required('HUDL_EMAIL'),
   password: required('HUDL_PASSWORD'),
-}
+};
