@@ -13,7 +13,7 @@ export default defineConfig(
   tseslint.configs.recommended,
   {
     ...playwright.configs['flat/recommended'],
-    files: ['test/**/*.ts'],
+    files: ['tests/**/*.ts'],
   },
   prettier, //keep last so it overrides formatting rules
 );
