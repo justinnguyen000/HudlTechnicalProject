@@ -10,15 +10,17 @@ export class LoginPage {
   readonly emailErrorMessage: Locator;
   readonly credentialsErrorMessage: Locator;
   readonly usernameErrorMessage: Locator;
+  readonly lockoutMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.emailInput = page.getByRole('textbox', { name: 'Email*' });
     this.passwordInput = page.getByRole('textbox', { name: 'Password*' });
-    this.continueButton = page.getByRole('button', {name: 'Continue', exact: true });
-    this.emailErrorMessage = page.getByText('Enter a valid email.')
-    this.credentialsErrorMessage = page.getByText('Your email or password is')
-    this.usernameErrorMessage = page.getByText('Incorrect username or')
+    this.continueButton = page.getByRole('button', { name: 'Continue', exact: true });
+    this.emailErrorMessage = page.getByText('Enter a valid email.');
+    this.credentialsErrorMessage = page.getByText('Your email or password is');
+    this.usernameErrorMessage = page.getByText('Incorrect username or');
+    this.lockoutMessage = page.getByText('You’ve tried to log in too');
   }
 
   async goto(): Promise<void> {
@@ -29,12 +31,12 @@ export class LoginPage {
     await this.emailInput.fill(email);
     await this.continueButton.click();
   }
-  
+
   async submitPassword(password: string): Promise<void> {
     await this.passwordInput.fill(password);
     await this.continueButton.click();
   }
-  
+
   async login(email: string, password: string): Promise<void> {
     await this.submitEmail(email);
     await this.submitPassword(password);
