@@ -19,7 +19,7 @@ test.describe('Account lockout', () => {
       for (let attempt = 1; attempt <= maxFailedAttempts; attempt++) {
         await page.waitForTimeout(attemptDelayMs);
         await loginPage.submitPassword(`Wrong-Password-${attempt}!`);
-        await expect(loginPage.lockoutMessage).toBeVisible();
+        await expect(loginPage.credentialsErrorMessage).toBeVisible();
       }
 
       // The real proof of lockout: even the correct password is refused
