@@ -7,6 +7,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  // The lockout test locks the test account, so it only runs when explicitly requested
+  grepInvert: process.env.RUN_LOCKOUT_TEST === 'true' ? undefined : /@lockout/,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -63,5 +65,5 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ]
+  ],
 });
