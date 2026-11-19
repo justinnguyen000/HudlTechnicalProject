@@ -7,7 +7,6 @@ export class LoginPage {
   readonly emailInput: Locator;
   readonly passwordInput: Locator;
   readonly continueButton: Locator;
-  readonly emailErrorMessage: Locator;
   readonly credentialsErrorMessage: Locator;
   readonly usernameErrorMessage: Locator;
   readonly lockoutMessage: Locator;
@@ -17,14 +16,13 @@ export class LoginPage {
     this.emailInput = page.getByRole('textbox', { name: 'Email*' });
     this.passwordInput = page.getByRole('textbox', { name: 'Password*' });
     this.continueButton = page.getByRole('button', { name: 'Continue', exact: true });
-    this.emailErrorMessage = page.getByText('Enter a valid email.');
     this.credentialsErrorMessage = page.getByText('Your email or password is');
     this.usernameErrorMessage = page.getByText('Incorrect username or');
     this.lockoutMessage = page.getByText('You’ve tried to log in too');
   }
 
   async goto(): Promise<void> {
-    await this.page.goto('login');
+    await this.page.goto('/login');
   }
 
   async submitEmail(email: string): Promise<void> {

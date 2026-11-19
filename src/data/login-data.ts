@@ -1,5 +1,4 @@
 export const errorMessages = {
-  invalidEmail: 'Enter a valid email.',
   invalidCredentials: 'Your email or password is',
   invalidUsernamePassword: 'Incorrect username or password',
 };
